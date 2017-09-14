@@ -7,7 +7,14 @@ class Calc
 {
     private $value = 0;
 
-    public function getValue()
+    private $memory;
+
+    public function __construct(Memory $memory)
+    {
+        $this->memory = $memory;
+    }
+
+    public function getValue(): float
     {
         return $this->value;
     }
@@ -35,5 +42,25 @@ class Calc
     public function division(float $num): float
     {
         return $this->value /= $num;
+    }
+
+    public function addToMemory(): void
+    {
+        $this->memory->addToMemory($this->value);
+    }
+
+    public function subtractFromMemory(): void
+    {
+        $this->memory->subtractFromMemory($this->value);
+    }
+
+    public function getMemoryValue(): float
+    {
+        return $this->memory->getMemoryValue();
+    }
+
+    public function clearMemory(): void
+    {
+        $this->memory->clearMemory();
     }
 }

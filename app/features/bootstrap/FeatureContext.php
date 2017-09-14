@@ -15,12 +15,9 @@ class FeatureContext implements Context
 {
     private $calculator;
 
-    private $memory;
-
     public function __construct()
     {
-        $this->calculator = new Calc();
-        $this->memory = new Memory();
+        $this->calculator = new Calc(new Memory());
     }
 
     /**
@@ -88,7 +85,7 @@ class FeatureContext implements Context
      */
     public function iAddCalculatorValueInMemory()
     {
-        $this->memory->addToMemory($this->calculator->getValue());
+        $this->calculator->addToMemory();
     }
 
     /**
@@ -96,7 +93,7 @@ class FeatureContext implements Context
      */
     public function iSubtractCalculatorValueFromMemory()
     {
-        $this->memory->subtractFromMemory($this->calculator->getValue());
+        $this->calculator->subtractFromMemory();
     }
 
     /**
@@ -106,7 +103,7 @@ class FeatureContext implements Context
      */
     public function theMemoryValueShouldBe($arg1)
     {
-        Assert::assertSame((float)$arg1, $this->memory->getMemoryValue());
+        Assert::assertSame((float)$arg1, $this->calculator->getMemoryValue());
     }
 
     /**
@@ -114,6 +111,6 @@ class FeatureContext implements Context
      */
     public function iClearMemory()
     {
-        $this->memory->clearMemory();
+        $this->calculator->clearMemory();
     }
 }
