@@ -1,0 +1,24 @@
+{
+    "name": "root/www",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shleif",
+            "email": "shyherpunk@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "config": {
+        "bin-dir": "vendor/bin"
+    },
+    "require": {
+        "phpunit/phpunit": "^6.3"
+    },
+    "require-dev": {
+        "behat/behat": "^3.4"
+    }
+}
