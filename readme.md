@@ -1,2 +1,2 @@
-PhpSpec test project
+Behat test project
 =============
