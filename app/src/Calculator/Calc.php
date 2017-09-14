@@ -20,8 +20,11 @@ class Calc
 
     public function subtraction(): float
     {
+        $this->value = $this->numbers[0];
+        array_splice($this->numbers, 0, 1);
+
         foreach ($this->numbers as $number) {
-            $this->value += $number;
+            $this->value -= $number;
         }
 
         return $this->value;
@@ -29,8 +32,11 @@ class Calc
 
     public function multiplication(): float
     {
+        $this->value = $this->numbers[0];
+        array_splice($this->numbers, 0, 1);
+
         foreach ($this->numbers as $number) {
-            $this->value += $number;
+            $this->value *= $number;
         }
 
         return $this->value;
@@ -38,8 +44,11 @@ class Calc
 
     public function division(): float
     {
+        $this->value = $this->numbers[0];
+        array_splice($this->numbers, 0, 1);
+
         foreach ($this->numbers as $number) {
-            $this->value += $number;
+            $this->value /= $number;
         }
 
         return $this->value;

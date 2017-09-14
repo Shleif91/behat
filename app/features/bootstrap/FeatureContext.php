@@ -14,6 +14,8 @@ class FeatureContext implements Context
 {
     private $calculator;
 
+    private $method;
+
     public function __construct()
     {
         $this->calculator = new Calc();
@@ -30,12 +32,21 @@ class FeatureContext implements Context
     }
 
     /**
-     * @Then the overall calculator sum should be :arg1
+     * @When choose the method :arg1
+     */
+    public function chooseTheMethod($arg1)
+    {
+       $this->method = $arg1;
+    }
+
+    /**
+     * @Then the overall calculator value should be :arg1
      *
      * @param $arg1
      */
-    public function theOverallCalculatorSumShouldBe($arg1)
+    public function theOverallCalculatorValueShouldBe($arg1)
     {
-        Assert::assertSame((float)$arg1, $this->calculator->addition());
+        $method = $this->method;
+        Assert::assertSame((float)$arg1, $this->calculator->$method());
     }
 }
