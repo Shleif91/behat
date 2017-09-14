@@ -13,7 +13,7 @@ class Memory
 
     public function subtractFromMemory(float $num): void
     {
-        $this->value += $num;
+        $this->value -= $num;
     }
 
     public function getMemoryValue(): float

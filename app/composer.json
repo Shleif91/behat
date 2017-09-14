@@ -16,7 +16,8 @@
         "bin-dir": "vendor/bin"
     },
     "require": {
-        "phpunit/phpunit": "^6.3"
+        "phpunit/phpunit": "^6.3",
+        "phpspec/phpspec": "^4.0"
     },
     "require-dev": {
         "behat/behat": "^3.4"
