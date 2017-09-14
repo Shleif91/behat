@@ -12,24 +12,11 @@ use Calculator\Calc;
  */
 class FeatureContext implements Context
 {
-    private $numbers = [];
-
     private $calculator;
 
     public function __construct()
     {
         $this->calculator = new Calc();
-    }
-
-    /**
-     * @Given there is a :arg1, which value :arg2
-     *
-     * @param $arg1
-     * @param $arg2
-     */
-    public function thereIsAWhichValue($arg1, $arg2)
-    {
-        $this->numbers[$arg1] = $arg2;
     }
 
     /**
@@ -39,7 +26,7 @@ class FeatureContext implements Context
      */
     public function iAddTheToTheCalculator($arg1)
     {
-        $this->calculator->addNumber($this->numbers[$arg1]);
+        $this->calculator->addNumber($arg1);
     }
 
     /**
