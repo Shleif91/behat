@@ -15,6 +15,8 @@ class Calc
             $this->value += $number;
         }
 
+        $this->numbers = [];
+
         return $this->value;
     }
 
@@ -26,6 +28,8 @@ class Calc
         foreach ($this->numbers as $number) {
             $this->value -= $number;
         }
+
+        $this->numbers = [];
 
         return $this->value;
     }
@@ -39,6 +43,8 @@ class Calc
             $this->value *= $number;
         }
 
+        $this->numbers = [];
+
         return $this->value;
     }
 
@@ -50,6 +56,8 @@ class Calc
         foreach ($this->numbers as $number) {
             $this->value /= $number;
         }
+
+        $this->numbers = [];
 
         return $this->value;
     }
