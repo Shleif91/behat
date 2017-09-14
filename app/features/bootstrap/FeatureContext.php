@@ -6,6 +6,7 @@ use Behat\Gherkin\Node\PyStringNode;
 use Behat\Gherkin\Node\TableNode;
 use PHPUnit\Framework\Assert;
 use Calculator\Calc;
+use Calculator\Memory;
 
 /**
  * Defines application features from the specific context.
@@ -14,9 +15,12 @@ class FeatureContext implements Context
 {
     private $calculator;
 
+    private $memory;
+
     public function __construct()
     {
         $this->calculator = new Calc();
+        $this->memory = new Memory();
     }
 
     /**
@@ -77,5 +81,39 @@ class FeatureContext implements Context
     public function theOverallCalculatorValueShouldBe($arg1)
     {
         Assert::assertSame((float)$arg1, $this->calculator->getValue());
+    }
+
+    /**
+     * @When I add calculator value in memory
+     */
+    public function iAddCalculatorValueInMemory()
+    {
+        $this->memory->addToMemory($this->calculator->getValue());
+    }
+
+    /**
+     * @When I subtract calculator value from memory
+     */
+    public function iSubtractCalculatorValueFromMemory()
+    {
+        $this->memory->subtractFromMemory($this->calculator->getValue());
+    }
+
+    /**
+     * @Then the memory value should be :arg1
+     *
+     * @param $arg1
+     */
+    public function theMemoryValueShouldBe($arg1)
+    {
+        Assert::assertSame((float)$arg1, $this->memory->getMemoryValue());
+    }
+
+    /**
+     * @When I clear memory
+     */
+    public function iClearMemory()
+    {
+        $this->memory->clearMemory();
     }
 }
