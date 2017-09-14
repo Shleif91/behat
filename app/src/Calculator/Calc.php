@@ -7,63 +7,33 @@ class Calc
 {
     private $value = 0;
 
-    private $numbers = [];
-
-    public function addition(): float
+    public function getValue()
     {
-        foreach ($this->numbers as $number) {
-            $this->value += $number;
-        }
-
-        $this->numbers = [];
-
         return $this->value;
     }
 
-    public function subtraction(): float
+    public function setValue(float $num): void
     {
-        $this->value = $this->numbers[0];
-        array_splice($this->numbers, 0, 1);
-
-        foreach ($this->numbers as $number) {
-            $this->value -= $number;
-        }
-
-        $this->numbers = [];
-
-        return $this->value;
+        $this->value = $num;
     }
 
-    public function multiplication(): float
+    public function addition(float $num): float
     {
-        $this->value = $this->numbers[0];
-        array_splice($this->numbers, 0, 1);
-
-        foreach ($this->numbers as $number) {
-            $this->value *= $number;
-        }
-
-        $this->numbers = [];
-
-        return $this->value;
+        return $this->value += $num;
     }
 
-    public function division(): float
+    public function subtraction(float $num): float
     {
-        $this->value = $this->numbers[0];
-        array_splice($this->numbers, 0, 1);
-
-        foreach ($this->numbers as $number) {
-            $this->value /= $number;
-        }
-
-        $this->numbers = [];
-
-        return $this->value;
+        return $this->value -= $num;
     }
 
-    public function addNumber(float $number)
+    public function multiplication(float $num): float
     {
-        $this->numbers[] = $number;
+        return $this->value *= $num;
+    }
+
+    public function division(float $num): float
+    {
+        return $this->value /= $num;
     }
 }

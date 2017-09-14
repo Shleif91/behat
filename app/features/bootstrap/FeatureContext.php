@@ -14,29 +14,59 @@ class FeatureContext implements Context
 {
     private $calculator;
 
-    private $method;
-
     public function __construct()
     {
         $this->calculator = new Calc();
     }
 
     /**
-     * @When I add the :arg1 to the calculator
+     * @When I add :arg1 to the calculator
      *
      * @param $arg1
      */
-    public function iAddTheToTheCalculator($arg1)
+    public function iAddToTheCalculator($arg1)
     {
-        $this->calculator->addNumber($arg1);
+        $this->calculator->setValue($arg1);
     }
 
     /**
-     * @When choose the method :arg1
+     * @When I division this value to :arg1
+     *
+     * @param $arg1
      */
-    public function chooseTheMethod($arg1)
+    public function iDivisionThisValueTo($arg1)
     {
-       $this->method = $arg1;
+        $this->calculator->division($arg1);
+    }
+
+    /**
+     * @When I addition :arg1 to this value
+     *
+     * @param $arg1
+     */
+    public function iAdditionToThisValue($arg1)
+    {
+        $this->calculator->addition($arg1);
+    }
+
+    /**
+     * @When I subtraction the :arg1 from this value
+     *
+     * @param $arg1
+     */
+    public function iSubtractionTheFromThisValue($arg1)
+    {
+        $this->calculator->subtraction($arg1);
+    }
+
+    /**
+     * @When I multiplication this value by :arg1
+     *
+     * @param $arg1
+     */
+    public function iMultiplicationThisValueBy($arg1)
+    {
+        $this->calculator->multiplication($arg1);
     }
 
     /**
@@ -46,7 +76,6 @@ class FeatureContext implements Context
      */
     public function theOverallCalculatorValueShouldBe($arg1)
     {
-        $method = $this->method;
-        Assert::assertSame((float)$arg1, $this->calculator->$method());
+        Assert::assertSame((float)$arg1, $this->calculator->getValue());
     }
 }
