@@ -11,7 +11,7 @@ use Calculator\Memory;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class CalculatorContext implements Context
 {
     private $calculator;
 

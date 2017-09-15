@@ -10,6 +10,7 @@ Feature: Addition of numbers with using Memory
     Then the overall calculator value should be 8.0
     And the memory value should be 8.0
 
+  @test
   Scenario: Add number in memory, addition second number and subtract it from memory value
     When I add 6 to the calculator
     And I add calculator value in memory
