@@ -3,5 +3,3 @@ default:
         calculator_features:
             paths: [ %paths.base%/features/calculator ]
             contexts: [ CalculatorContext ]
-            filters:
-                tags: "@test"
